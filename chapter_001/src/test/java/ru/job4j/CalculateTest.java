@@ -8,8 +8,8 @@ import static org.junit.Assert.assertThat;
 
 /**
 * Test.
-* 
-* @author Kucyh Vasily
+*
+* @author Kucyh Vasily (mailto:basil135@mail.ru)
 * @version $Id$
 * @since 0.1
 */
@@ -22,15 +22,15 @@ public class CalculateTest {
 	public void whenAddOneToOneThenTwo() {
 
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		
+
 		System.setOut(new PrintStream(out));
 
 		Calculate.main(null);
 
 		assertThat(
-			out.toString(), 
+			out.toString(),
 			is(
-				String.format("Hello world%s", 
+				String.format("Hello world%s",
 				System.getProperty("line.separator")
 				)
 			)
