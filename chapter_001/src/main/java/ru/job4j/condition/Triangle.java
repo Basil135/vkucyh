@@ -37,34 +37,6 @@ public class Triangle {
 	}
 
 	/**
-	* This method shows us can we take a triangle with points we have.
-	*
-	* @param pointOne is axis point one
-	* @param pointTwo is axis point two
-	* @param pointThree is axis point three
-	* @return true if we take a triangle
-	*/
-	private boolean condition(final Point pointOne, final Point pointTwo, final Point pointThree) {
-
-		boolean result = true;
-
-		if (pointOne.getX() == pointTwo.getX() && pointOne.getY() == pointTwo.getY()) {
-			result = false;
-		} else if (pointOne.getX() == pointThree.getX() && pointOne.getY() == pointThree.getY()) {
-			result = false;
-		} else if (pointTwo.getX() == pointThree.getX() && pointTwo.getY() == pointThree.getY()) {
-			result = false;
-		} else if (pointOne.getX() == pointTwo.getX() && pointOne.getX() == pointThree.getX()) {
-			result = false;
-		} else if (pointOne.getY() == pointTwo.getY() && pointOne.getY() == pointThree.getY()) {
-			result = false;
-		}
-
-		return result;
-
-	}
-
-	/**
 	* This method return value * value.
 	*
 	* @param value is a number
@@ -87,11 +59,11 @@ public class Triangle {
 		double bc;
 		double ac;
 
-		if (condition(a, b, c)) {
+		ab = Math.sqrt(pow(this.b.getX() - this.a.getX()) + pow(this.b.getY() - this.a.getY()));
+		bc = Math.sqrt(pow(this.c.getX() - this.b.getX()) + pow(this.c.getY() - this.b.getY()));
+		ac = Math.sqrt(pow(this.c.getX() - this.a.getX()) + pow(this.c.getY() - this.a.getY()));
 
-			ab = Math.sqrt(pow(this.b.getX() - this.a.getX()) + pow(this.b.getY() - this.a.getY()));
-			bc = Math.sqrt(pow(this.c.getX() - this.b.getX()) + pow(this.c.getY() - this.b.getY()));
-			ac = Math.sqrt(pow(this.c.getX() - this.a.getX()) + pow(this.c.getY() - this.a.getY()));
+		if (ab < bc + ac) {
 
 			p = (ab + bc + ac) / 2;
 			result = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
