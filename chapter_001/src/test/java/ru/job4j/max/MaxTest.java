@@ -68,4 +68,20 @@ public class MaxTest {
 
 	}
 
+	/**
+	* The method return the largest value from three numbers.
+	*/
+	public void whenOneAndTwoAndThreeThenThree() {
+
+		final int expectedValue;
+		final int actualValue;
+
+		Max max = new Max();
+
+		expectedValue = 3;
+		actualValue = max.max(1, 2, 3);
+
+		assertThat(expectedValue, is(actualValue));
+
+	}
 }
