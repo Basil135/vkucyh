@@ -21,13 +21,10 @@ public class TriangleTest {
 	@Test
 	public void whenTriangleDoesNotExistThenNegativeOne() {
 
-		double expectedValue;
-		double actualValue;
-
 		Triangle triangle = new Triangle(new Point(2, 2), new Point(2, 2), new Point(2, 2));
 
-		expectedValue = -1D;
-		actualValue = triangle.area();
+		double expectedValue = -1D;
+		double actualValue = triangle.area();
 
 		assertThat(actualValue, is(expectedValue));
 
@@ -39,13 +36,10 @@ public class TriangleTest {
 	@Test
 	public void whenTriangleExistThenAreaIsSet() {
 
-		double expectedValue;
-		double actualValue;
-
 		Triangle triangle = new Triangle(new Point(1, 2), new Point(1, 4), new Point(3, 4));
 
-		expectedValue = 2D;
-		actualValue = triangle.area();
+		double expectedValue = 2D;
+		double actualValue = triangle.area();
 
 		assertThat(actualValue, closeTo(expectedValue, 0.01));
 
