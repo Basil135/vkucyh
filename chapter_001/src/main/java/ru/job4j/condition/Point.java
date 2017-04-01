@@ -55,7 +55,7 @@ public class Point {
 	* @return true if point is on axis y(x) = a * x + b
 	*/
 	public boolean is(final int a, final int b) {
-		return this.y == a * this.x + b ? true : false;
+		return this.y == a * this.x + b;
 	}
 
 }
