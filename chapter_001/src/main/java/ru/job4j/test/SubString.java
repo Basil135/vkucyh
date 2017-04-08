@@ -63,7 +63,43 @@ public class SubString {
 
 		}
 
-	return result;
+		return result;
+
+	}
+
+	/**
+	* This method is alternative method throw the hashcode.
+	*
+	* @param origin is the input string
+	* @param sub is the substring
+	* @return true if sub is a substring of origin
+	*/
+	public boolean containsHash(String origin, String sub) {
+
+		if (origin == null || sub == null) {
+			return false;
+		}
+
+		int hashSub = sub.hashCode();
+		int hashSubOrigin;
+
+		int beginIndex = 0;
+		int endIndex = sub.length();
+
+		while (endIndex <= origin.length()) {
+
+			hashSubOrigin = origin.substring(beginIndex, endIndex).hashCode();
+
+			if (hashSubOrigin == hashSub || origin.substring(beginIndex, endIndex).equals(sub)) {
+				return true;
+			}
+
+			beginIndex++;
+			endIndex++;
+
+		}
+
+		return false;
 
 	}
 
