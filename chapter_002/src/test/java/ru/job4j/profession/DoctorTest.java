@@ -23,7 +23,7 @@ public class DoctorTest {
         Doctor lisa = new Doctor("Lisa", "MSU", "cardio", 23);
 
         String expectedValue = "Lisa heal John by medical preparations";
-        String actualValue = lisa.medication("John");
+        String actualValue = lisa.medication(new Patient("John"));
 
         assertThat(actualValue, is(expectedValue));
 
@@ -38,7 +38,7 @@ public class DoctorTest {
         Doctor lisa = new Doctor("Lisa", "MSU", "cardio", 23);
 
         String expectedValue = "Lisa inspect patient John";
-        String actualValue = lisa.inspectionPatient("John");
+        String actualValue = lisa.inspectionPatient(new Patient("John"));
 
         assertThat(actualValue, is(expectedValue));
 
@@ -53,7 +53,7 @@ public class DoctorTest {
         Doctor lisa = new Doctor("Lisa", "MSU", "cardio", 23);
 
         String expectedValue = "Lisa resuscitation John";
-        String actualValue = lisa.resuscitation("John");
+        String actualValue = lisa.resuscitation(new Patient("John"));
 
         assertThat(actualValue, is(expectedValue));
 
@@ -68,7 +68,7 @@ public class DoctorTest {
         Doctor lisa = new Doctor("Lisa", "MSU", "cardio", 23);
 
         String expectedValue = "Lisa surgery operation with John";
-        String actualValue = lisa.surgeryOperation("John");
+        String actualValue = lisa.surgeryOperation(new Patient("John"));
 
         assertThat(actualValue, is(expectedValue));
 
