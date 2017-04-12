@@ -27,14 +27,14 @@ public class Engineer extends Profession {
      * @param object is the string name of object
      * @return just a string
      */
-    public String construct(String object) {
+    public String construct(Building object) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" construct the ");
-        builder.append(object);
+        builder.append(object.getName());
 
         result = builder.toString();
 
@@ -48,14 +48,14 @@ public class Engineer extends Profession {
      * @param object is the name of a object
      * @return just a string
      */
-    public String destruct(String object) {
+    public String destruct(Building object) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" destruct the ");
-        builder.append(object);
+        builder.append(object.getName());
 
         result = builder.toString();
 
@@ -69,14 +69,14 @@ public class Engineer extends Profession {
      * @param object is the name of an object
      * @return just a string
      */
-    public String analysis(String object) {
+    public String analysis(Building object) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" analise the ");
-        builder.append(object);
+        builder.append(object.getName());
 
         result = builder.toString();
 
