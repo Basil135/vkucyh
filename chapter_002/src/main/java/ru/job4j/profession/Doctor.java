@@ -27,14 +27,14 @@ public class Doctor extends Profession {
      * @param patient is the patient of the doctor
      * @return string doctor heal patient by medical preparations
      */
-    public String medication(String patient) {
+    public String medication(Patient patient) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" heal ");
-        builder.append(patient);
+        builder.append(patient.getName());
         builder.append(" by medical preparations");
 
         result = builder.toString();
@@ -49,14 +49,14 @@ public class Doctor extends Profession {
      * @param patient is the patient of the doctor
      * @return string doctor surgery operation with patient
      */
-    public String surgeryOperation(String patient) {
+    public String surgeryOperation(Patient patient) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" surgery operation with ");
-        builder.append(patient);
+        builder.append(patient.getName());
 
         result = builder.toString();
 
@@ -70,14 +70,14 @@ public class Doctor extends Profession {
      * @param patient is the patient of the doctor
      * @return string doctor resuscitation patient
      */
-    public String resuscitation(String patient) {
+    public String resuscitation(Patient patient) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" resuscitation ");
-        builder.append(patient);
+        builder.append(patient.getName());
 
         result = builder.toString();
 
@@ -91,14 +91,14 @@ public class Doctor extends Profession {
      * @param patient is the patient of the doctor
      * @return string doctor inspect patient
      */
-    public String inspectionPatient(String patient) {
+    public String inspectionPatient(Patient patient) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" inspect patient ");
-        builder.append(patient);
+        builder.append(patient.getName());
 
         result = builder.toString();
 
