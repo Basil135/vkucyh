@@ -7,12 +7,7 @@ package ru.job4j.profession;
  * @version $Id$
  * @since 11.04.2017
  */
-public class Profession {
-
-    /**
-     * This param is name.
-     */
-    private String name;
+public class Profession extends Human {
 
     /**
      * This param is diploma.
@@ -38,7 +33,7 @@ public class Profession {
      * @param workExp is work experience
      */
     public Profession(String name, String diploma, String speciality, int workExp) {
-        this.name = name;
+        super(name);
         this.diploma = diploma;
         this.speciality = speciality;
         this.workExp = workExp;
@@ -49,8 +44,9 @@ public class Profession {
      *
      * @return name
      */
+    @Override
     public String getName() {
-        return name;
+        return super.getName();
     }
 
     /**
