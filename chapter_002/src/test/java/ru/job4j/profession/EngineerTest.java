@@ -22,8 +22,8 @@ public class EngineerTest {
 
         Engineer bob = new Engineer("Bob", "MSU", "engineer", 10);
 
-        String expectedValue = "Bob construct the building";
-        String actualValue = bob.construct("building");
+        String expectedValue = "Bob construct the home";
+        String actualValue = bob.construct(new Building("home"));
 
         assertThat(actualValue, is(expectedValue));
 
@@ -37,8 +37,8 @@ public class EngineerTest {
 
         Engineer bob = new Engineer("Bob", "MSU", "engineer", 10);
 
-        String expectedValue = "Bob destruct the building";
-        String actualValue = bob.destruct("building");
+        String expectedValue = "Bob destruct the home";
+        String actualValue = bob.destruct(new Building("home"));
 
         assertThat(actualValue, is(expectedValue));
 
@@ -52,8 +52,8 @@ public class EngineerTest {
 
         Engineer bob = new Engineer("Bob", "MSU", "engineer", 10);
 
-        String expectedValue = "Bob analise the building";
-        String actualValue = bob.analysis("building");
+        String expectedValue = "Bob analise the home";
+        String actualValue = bob.analysis(new Building("home"));
 
         assertThat(actualValue, is(expectedValue));
 
