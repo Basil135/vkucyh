@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class TeacherTest {
 
     /**
-     * This method tests method teavh.
+     * This method tests method teach.
      */
     @Test
     public void whenJohnTeachLisaThenTeachReturnJohnTeachLisa() {
@@ -30,7 +30,7 @@ public class TeacherTest {
     }
 
     /**
-     * This method tests methodexam.
+     * This method tests method exam.
      */
     @Test
     public void whenJohnExamLisaThenExamReturnJohnExamLisa() {
