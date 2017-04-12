@@ -27,14 +27,14 @@ public class Teacher extends Profession {
      * @param student is the name of a student
      * @return just a string
      */
-    public String teach(String student) {
+    public String teach(Student student) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" teach ");
-        builder.append(student);
+        builder.append(student.getName());
 
         result = builder.toString();
 
@@ -48,14 +48,14 @@ public class Teacher extends Profession {
      * @param student is the name of a student
      * @return just a string
      */
-    public String exam(String student) {
+    public String exam(Student student) {
 
         String result;
         StringBuilder builder = new StringBuilder();
 
         builder.append(this.getName());
         builder.append(" examinate ");
-        builder.append(student);
+        builder.append(student.getName());
 
         result = builder.toString();
 
