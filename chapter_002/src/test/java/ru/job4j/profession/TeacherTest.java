@@ -23,7 +23,7 @@ public class TeacherTest {
         Teacher john = new Teacher("John", "MSU", "mathematician", 25);
 
         String expectedValue = "John teach Lisa";
-        String actualValue = john.teach("Lisa");
+        String actualValue = john.teach(new Student("Lisa"));
 
         assertThat(actualValue, is(expectedValue));
 
@@ -38,7 +38,7 @@ public class TeacherTest {
         Teacher john = new Teacher("John", "MSU", "mathematician", 25);
 
         String expectedValue = "John examinate Lisa";
-        String actualValue = john.exam("Lisa");
+        String actualValue = john.exam(new Student("Lisa"));
 
         assertThat(actualValue, is(expectedValue));
 
