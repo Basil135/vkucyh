@@ -68,7 +68,7 @@ public class StartUI {
                 consoleInput.ask("print id of item: ")
         );
         chooseUpdate = Integer.parseInt(
-                consoleInput.ask("what line do you need to update?\n1. Name\n2. Description\n3.comment")
+                consoleInput.ask("what line do you need to update?\n1. Name\n2. Description")
         );
 
         if (chooseUpdate == 1) {
