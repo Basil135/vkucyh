@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.start;
+
+import ru.job4j.tracker.models.Item;
 
 /**
  * This class describes tracker.
@@ -9,6 +11,10 @@ package ru.job4j.tracker;
  */
 public class Tracker {
 
+    /**
+     * parameter id is numeric id of item.
+     */
+    private int id = 1;
     /**
      * parameter index is index of array items.
      */
@@ -38,6 +44,8 @@ public class Tracker {
      * @return item that put to array
      */
     public Item add(Item item) {
+
+        item.setId(String.valueOf(id++));
 
         if (index < items.length) {
             items[index++] = item;
