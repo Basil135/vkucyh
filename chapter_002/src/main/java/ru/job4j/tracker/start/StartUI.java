@@ -12,40 +12,68 @@ import ru.job4j.tracker.models.Item;
 public class StartUI {
 
     /**
+     * parameter input is interface Input.
+     */
+    private Input input;
+    /**
+     * parameter tracker is object Tracker class.
+     */
+    private Tracker tracker;
+
+    /**
+     * constructor of StartUI class.
+     *
+     * @param input is Input interface
+     * @param tracker is object of Tracker class
+     */
+    public StartUI(Input input, Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
+
+    /**
      * main method.
      *
      * @param args are input args
      */
     public static void main(String[] args) {
 
-        int input;
-
-        String mainMenu = mainMenu();
-
+        Input consoleInput = new ConsoleInput();
         Tracker tracker = new Tracker();
 
-        ConsoleInput consoleInput = new ConsoleInput();
+        new StartUI(consoleInput, tracker).init();
+
+    }
+
+    /**
+     * method initialize tracker application.
+     */
+    public void init() {
+
+        int answer;
+
+        String mainMenu = mainMenu();
 
         boolean condition = true;
 
         while (condition) {
 
-            input = Integer.parseInt(consoleInput.ask(mainMenu));
+            answer = Integer.parseInt(input.ask(mainMenu));
 
-            if (input == 6) {
+            if (answer == 6) {
                 condition = false;
-            } else if (input == 0) {
-                setItem(consoleInput, tracker);
-            } else if (input == 1) {
+            } else if (answer == 0) {
+                setItem(input, tracker);
+            } else if (answer == 1) {
                 showAllItems(tracker);
-            } else if (input == 2) {
-                update(consoleInput, tracker);
-            } else if (input == 3) {
-                deleteItem(consoleInput, tracker);
-            } else if (input == 4) {
-                System.out.println(findById(consoleInput, tracker).toString());
-            } else if (input == 5) {
-                findItemsByName(consoleInput, tracker);
+            } else if (answer == 2) {
+                update(input, tracker);
+            } else if (answer == 3) {
+                deleteItem(input, tracker);
+            } else if (answer == 4) {
+                System.out.println(findById(input, tracker).toString());
+            } else if (answer == 5) {
+                findItemsByName(input, tracker);
             }
 
         }
@@ -55,30 +83,30 @@ public class StartUI {
     /**
      * method update item in tracker.
      *
-     * @param consoleInput is object of ConsoleInput class
+     * @param input is object of ConsoleInput class
      * @param tracker is object of Tracker class
      */
-    private static void update(ConsoleInput consoleInput, Tracker tracker) {
+    private static void update(Input input, Tracker tracker) {
 
         int chooseUpdate;
 
         Item updateItem;
 
         updateItem = tracker.findById(
-                consoleInput.ask("print id of item: ")
+                input.ask("print id of item: ")
         );
         chooseUpdate = Integer.parseInt(
-                consoleInput.ask("what line do you need to update?\n1. Name\n2. Description")
+                input.ask("what line do you need to update?\n1. Name\n2. Description")
         );
 
         if (chooseUpdate == 1) {
             updateItem.setName(
-                    consoleInput.ask("Enter new name to item: ")
+                    input.ask("Enter new name to item: ")
             );
             tracker.update(updateItem);
         } else if (chooseUpdate == 2) {
             updateItem.setDescription(
-                    consoleInput.ask("Enter new description to item: ")
+                    input.ask("Enter new description to item: ")
             );
             tracker.update(updateItem);
         }
@@ -88,13 +116,13 @@ public class StartUI {
     /**
      * method find item by id from tracker.
      *
-     * @param consoleInput is object of ConsoleInput class
+     * @param input is object of ConsoleInput class
      * @param tracker is object of Tracker class
      * @return found item
      */
-    private static Item findById(ConsoleInput consoleInput, Tracker tracker) {
+    private static Item findById(Input input, Tracker tracker) {
         return tracker.findById(
-                consoleInput.ask("print id of item: ")
+                input.ask("print id of item: ")
         );
     }
 
@@ -123,10 +151,10 @@ public class StartUI {
     /**
      * method set item to tracker.
      *
-     * @param consoleInput is object of ConsoleInput class
+     * @param input is object of ConsoleInput class
      * @param tracker is object of Tracker class
      */
-    private static void setItem(ConsoleInput consoleInput, Tracker tracker) {
+    private static void setItem(Input input, Tracker tracker) {
 
         String[] addItems = new String[2];
 
@@ -134,8 +162,8 @@ public class StartUI {
         addItems[1] = "input description of item: ";
 
         Item item = new Item(null, null, null);
-        item.setName(consoleInput.ask(addItems[0]));
-        item.setDescription(consoleInput.ask(addItems[1]));
+        item.setName(input.ask(addItems[0]));
+        item.setDescription(input.ask(addItems[1]));
         System.out.println(tracker.add(item).toString());
 
     }
@@ -143,11 +171,11 @@ public class StartUI {
     /**
      * method delete item from tracker.
      *
-     * @param consoleInput is object of ConsoleInput class
+     * @param input is object of ConsoleInput class
      * @param tracker is object of Tracker class
      */
-    private static void deleteItem(ConsoleInput consoleInput, Tracker tracker) {
-        tracker.delete(findById(consoleInput, tracker));
+    private static void deleteItem(Input input, Tracker tracker) {
+        tracker.delete(findById(input, tracker));
         System.out.println("item successfully removed!");
     }
 
@@ -165,11 +193,11 @@ public class StartUI {
     /**
      * method find item by name in tracker.
      *
-     * @param consoleInput is object of ConsoleInput class
+     * @param input is object of ConsoleInput class
      * @param tracker is object of Tracker class
      */
-    private static void findItemsByName(ConsoleInput consoleInput, Tracker tracker) {
-        for (Item item : tracker.findByName(consoleInput.ask("print name of item: "))) {
+    private static void findItemsByName(Input input, Tracker tracker) {
+        for (Item item : tracker.findByName(input.ask("print name of item: "))) {
             System.out.println(item.toString());
         }
     }
