@@ -1,6 +1,7 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.start;
 
 import org.junit.Test;
+import ru.job4j.tracker.models.Item;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
@@ -21,7 +22,7 @@ public class TrackerTest {
     @Test
     public void whenAddOneElementThenThisElementAdd() {
 
-        Item element = new Item("example", "1", null, 0, null);
+        Item element = new Item("example", null, null);
         Tracker tracker = new Tracker();
 
         Item expectedItem = element;
@@ -37,8 +38,8 @@ public class TrackerTest {
     @Test
     public void whenAddTwoElementsThenSizeEqualsTwo() {
 
-        Item elementOne = new Item("name", "1", null, 0, null);
-        Item elementTwo = new Item("name", "2", null, 0, null);
+        Item elementOne = new Item("name", null, null);
+        Item elementTwo = new Item("name", null, null);
 
         Tracker tracker = new Tracker();
 
@@ -58,12 +59,14 @@ public class TrackerTest {
     @Test
     public void whenUpdateThenFindById() {
 
-        Item elementOne = new Item("name", "1", null, 0, null);
-        Item elementTwo = new Item("example", "1", null, 0, null);
+        Item elementOne = new Item("name", null, null);
+        Item elementTwo = new Item("example", null, null);
 
         Tracker tracker = new Tracker();
 
         tracker.add(elementOne);
+        elementTwo.setId("1");
+        elementOne.setId("1");
         tracker.update(elementTwo);
 
         Item expectedItem = elementTwo;
@@ -79,8 +82,8 @@ public class TrackerTest {
     @Test
     public void whenDeleteThenFindByName() {
 
-        Item elementOne = new Item("example", "1", null, 0, null);
-        Item elementTwo = new Item("example", "2", null, 0, null);
+        Item elementOne = new Item("example", null, null);
+        Item elementTwo = new Item("example", null, null);
 
         Tracker tracker = new Tracker();
 
@@ -101,8 +104,8 @@ public class TrackerTest {
     @Test
     public void whenFindAllThenReturnAll() {
 
-        Item elementOne = new Item("example", "1", null, 0, null);
-        Item elementTwo = new Item("example", "2", null, 0, null);
+        Item elementOne = new Item("example", null, null);
+        Item elementTwo = new Item("example", null, null);
 
         Tracker tracker = new Tracker();
 
@@ -122,16 +125,16 @@ public class TrackerTest {
     @Test
     public void whenFindByNameThenReturnAnArray() {
 
-        Item elementOne = new Item("example", "1", null, 0, null);
-        Item elementTwo = new Item("example", "2", null, 0, null);
-        Item elementThree = new Item("name", "3", null, 0, null);
-        Item elementFour = new Item("something", "4", null, 0, null);
-        Item elementFive = new Item("just", "5", null, 0, null);
-        Item elementSix = new Item("example", "6", null, 0, null);
-        Item elementSeven = new Item("lamp", "7", null, 0, null);
-        Item elementEight = new Item("name", "8", null, 0, null);
-        Item elementNine = new Item("example", "9", null, 0, null);
-        Item elementTen = new Item("example", "10", null, 0, null);
+        Item elementOne = new Item("example", null, null);
+        Item elementTwo = new Item("example", null, null);
+        Item elementThree = new Item("name", null, null);
+        Item elementFour = new Item("something", null, null);
+        Item elementFive = new Item("just", null, null);
+        Item elementSix = new Item("example", null, null);
+        Item elementSeven = new Item("lamp", null, null);
+        Item elementEight = new Item("name", null, null);
+        Item elementNine = new Item("example", null, null);
+        Item elementTen = new Item("example", null, null);
 
         Tracker tracker = new Tracker();
 
