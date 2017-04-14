@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.models;
 
 import java.util.Arrays;
 
@@ -26,26 +26,25 @@ public class Item {
     /**
      * creation date at milliseconds.
      */
-    private long creationDate;
+    private long creationDate = System.currentTimeMillis();
     /**
      * array of a comments to an item.
      */
     private String[] comments;
-
+    /**
+     *
+     */
+    private int indexComments = 0;
     /**
      * constructor of a class Item.
      *
      * @param name is name of an item
-     * @param id is id of an item
      * @param description is description of an item
-     * @param creationDate is creation date of an item
      * @param comments is array of a comments to an item
      */
-    public Item(String name, String id, String description, long creationDate, String[] comments) {
+    public Item(String name, String description, String[] comments) {
         this.name = name;
-        this.id = id;
         this.description = description;
-        this.creationDate = creationDate;
         this.comments = comments;
     }
 
@@ -186,4 +185,16 @@ public class Item {
         result = 31 * result + Arrays.hashCode(comments);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Item{"
+                + "name='" + name + '\''
+                + ", id='" + id + '\''
+                + ", description='" + description + '\''
+                + ", creationDate=" + creationDate
+                + ", comments=" + Arrays.toString(comments)
+                + '}';
+    }
+
 }
