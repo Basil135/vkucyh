@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.models;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class ItemTest {
     @Test
     public void whenNameIsExampleThenGetNameIsExample() {
 
-        Item item = new Item(null, null, null, 0, null);
+        Item item = new Item(null, null, null);
 
         item.setName("example");
 
@@ -38,7 +38,7 @@ public class ItemTest {
     @Test
     public void whenDescriptionIsTestItemThenGetDescriptionIsTestItem() {
 
-        Item item = new Item(null, null, null, 0, null);
+        Item item = new Item(null, null, null);
 
         item.setDescription("test item");
 
@@ -55,7 +55,7 @@ public class ItemTest {
     @Test
     public void whenIdIsOneThenGetIdIsOne() {
 
-        Item item = new Item(null, null, null, 0, null);
+        Item item = new Item(null, null, null);
 
         item.setId("1");
 
@@ -72,7 +72,7 @@ public class ItemTest {
     @Test
     public void whenCreationDateIs100000ThenGetCreationIs100000() {
 
-        Item item = new Item(null, null, null, 0, null);
+        Item item = new Item(null, null, null);
 
         item.setCreationDate(100000);
 
@@ -91,7 +91,7 @@ public class ItemTest {
 
         String[] testValues = {"comment one", "comment two"};
 
-        Item item = new Item(null, null, null, 0, null);
+        Item item = new Item(null, null, null);
 
         item.setComments(testValues);
 
@@ -110,17 +110,19 @@ public class ItemTest {
 
         String[] testValues = {"comment"};
 
-        Item expectedItem = new Item(null, null, null, 0, null);
-        Item actualItem  = new Item("name", "1", "description", 20, testValues);
+        Item expectedItem = new Item(null, null, null);
+        Item actualItem  = new Item("name", "description", testValues);
+
+        actualItem.setId("1");
+        actualItem.setCreationDate(expectedItem.getCreationDate());
 
         expectedItem.setName("name");
-        expectedItem.setId("1");
+        expectedItem.setId(actualItem.getId());
         expectedItem.setDescription("description");
-        expectedItem.setCreationDate(20);
+        expectedItem.setCreationDate(actualItem.getCreationDate());
         expectedItem.setComments(testValues);
 
         assertEquals(expectedItem, actualItem);
-        //assertThat(actualItem, is(expectedItem));
 
     }
 
