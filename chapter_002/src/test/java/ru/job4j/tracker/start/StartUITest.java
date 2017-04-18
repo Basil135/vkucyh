@@ -1,6 +1,9 @@
 package ru.job4j.tracker.start;
 
 import org.junit.Test;
+import ru.job4j.tracker.controller.StubInput;
+import ru.job4j.tracker.controller.Tracker;
+import ru.job4j.tracker.ui.StartUI;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -116,7 +119,7 @@ public class StartUITest {
     @Test
     public void whenAddOneItemAndUpdateThenFindAllReturnOneUpdatedItem() {
 
-        String[] answers = {"0", "name", "description", "2", "1", "1", "example", "6"};
+        String[] answers = {"0", "name", "description", "2", "1", "0", "example", "6"};
 
         Tracker tracker = new Tracker();
 
