@@ -51,6 +51,24 @@ public class UserAction {
     }
 
     /**
+     * method return all combinations of actions in array of integer.
+     *
+     * @return array of integer
+     */
+    public int[] getRangeOfActions() {
+
+        int[] result = new int[actions.length];
+        int count = 0;
+
+        for (IAction action : actions) {
+            result[count++] = action.key();
+        }
+
+        return result;
+
+    }
+
+    /**
      * method return all actions as String.
      *
      * @return actions as String
