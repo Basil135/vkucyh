@@ -106,7 +106,14 @@ public class UserAction {
     /**
      * This inner class add item to tracker.
      */
-    private class AddItem implements IAction {
+    private class AddItem extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        AddItem() {
+            super("Add item to tracker.");
+        }
 
         /**
          * method execute the action add item to tracker.
@@ -137,22 +144,19 @@ public class UserAction {
             return 0;
         }
 
-        /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Add item to tracker.");
-        }
-
     }
 
     /**
      * inner class find all items from tracker.
      */
-    private class FindAll implements IAction {
+    private class FindAll extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        FindAll() {
+            super("Find all items.");
+        }
 
         /**
          * method execute the action.
@@ -188,22 +192,19 @@ public class UserAction {
             return 1;
         }
 
-        /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find all items.");
-        }
-
     }
 
     /**
      * inner class update item.
      */
-    public class UpdateItem implements IAction {
+    public class UpdateItem extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        UpdateItem() {
+            super("Update item.");
+        }
 
         /**
          * item that we need to update.
@@ -290,19 +291,16 @@ public class UserAction {
         }
 
         /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Update item.");
-        }
-
-        /**
          * set new name to item.
          */
-        private class RenameItem implements IAction {
+        private class RenameItem extends BaseAction {
+
+            /**
+             * constructor for BaseAction.
+             */
+            RenameItem() {
+                super("Rename item.");
+            }
 
             /**
              * method execute the action.
@@ -330,22 +328,19 @@ public class UserAction {
                 return 0;
             }
 
-            /**
-             * method return info of action.
-             *
-             * @return String info
-             */
-            @Override
-            public String info() {
-                return String.format("%s. %s", this.key(), "Rename item.");
-            }
-
         }
 
         /**
          * inner class set new description to item.
          */
-        private class SetNewDescriptionToItem implements IAction {
+        private class SetNewDescriptionToItem extends BaseAction {
+
+            /**
+             * constructor for BaseAction.
+             */
+            SetNewDescriptionToItem() {
+                super("Set new description to item.");
+            }
 
             /**
              * method execute the action.
@@ -373,16 +368,6 @@ public class UserAction {
                 return 1;
             }
 
-            /**
-             * method return info of action.
-             *
-             * @return String info
-             */
-            @Override
-            public String info() {
-                return String.format("%s. %s", this.key(), "Set new description to item.");
-            }
-
         }
 
     }
@@ -390,7 +375,14 @@ public class UserAction {
     /**
      * inner class delete item.
      */
-    private class DeleteItem implements IAction {
+    private class DeleteItem extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        DeleteItem() {
+            super("Delete item by id.");
+        }
 
         /**
          * method execute the action.
@@ -420,22 +412,19 @@ public class UserAction {
             return 3;
         }
 
-        /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Delete Item by id.");
-        }
-
     }
 
     /**
      * inner class find item by id.
      */
-    private class FindItemById implements IAction {
+    private class FindItemById extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        FindItemById() {
+            super("Find item by id.");
+        }
 
         /**
          * method execute the action.
@@ -465,22 +454,19 @@ public class UserAction {
             return 4;
         }
 
-        /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find item by id.");
-        }
-
     }
 
     /**
      * inner class find items by name.
      */
-    private class FindItemsByName implements IAction {
+    private class FindItemsByName extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        FindItemsByName() {
+            super("Find items by name.");
+        }
 
         /**
          * method execute the action.
@@ -515,22 +501,19 @@ public class UserAction {
             return 5;
         }
 
-        /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Find items by name.");
-        }
-
     }
 
     /**
      * inner class exit from tracker.
      */
-    private class ExitTracker implements IAction {
+    private class ExitTracker extends BaseAction {
+
+        /**
+         * constructor for BaseAction.
+         */
+        ExitTracker() {
+            super("Exit tracker");
+        }
 
         /**
          * method execute the action.
@@ -552,16 +535,6 @@ public class UserAction {
         @Override
         public int key() {
             return 6;
-        }
-
-        /**
-         * method return info of action.
-         *
-         * @return String info
-         */
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Exit tracker.");
         }
 
     }
