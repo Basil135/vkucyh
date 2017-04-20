@@ -1,6 +1,7 @@
 package ru.job4j.tracker.ui;
 
 import ru.job4j.tracker.controller.Input;
+import ru.job4j.tracker.exceptions.IndexOutOfRangeException;
 
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ import java.util.Scanner;
 public class ConsoleInput implements Input {
 
     /**
-     * this scanner is is scanner.
+     * this scanner is scanner.
      */
     private Scanner scanner = new Scanner(System.in);
 
@@ -30,6 +31,30 @@ public class ConsoleInput implements Input {
         System.out.println(question);
 
         return scanner.nextLine();
+
+    }
+
+    @Override
+    public int ask(String question, int[] range) throws IndexOutOfRangeException {
+
+        boolean exist = false;
+
+        int key = Integer.valueOf(ask(question));
+
+        for (int value : range) {
+
+            if (value == key) {
+                exist = true;
+                break;
+            }
+
+        }
+
+        if (exist) {
+            return key;
+        } else {
+            throw new IndexOutOfRangeException("Incorrect menu action.");
+        }
 
     }
 
