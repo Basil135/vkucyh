@@ -1,5 +1,7 @@
 package ru.job4j.tracker.controller;
 
+import ru.job4j.tracker.exceptions.IndexOutOfRangeException;
+
 /**
  * This class uses for test.
  *
@@ -36,6 +38,38 @@ public class StubInput implements Input {
     @Override
     public String ask(String question) {
         return answers[index++];
+    }
+
+    /**
+     * method ask data from user and validate this data to actions.
+     *
+     * @param question is question
+     * @param range is range of integer
+     * @return
+     * @throws IndexOutOfRangeException
+     */
+    @Override
+    public int ask(String question, int[] range) throws IndexOutOfRangeException {
+
+        boolean exist = false;
+
+        int key = Integer.valueOf(ask(question));
+
+        for (int value : range) {
+
+            if (value == key) {
+                exist = true;
+                break;
+            }
+
+        }
+
+        if (exist) {
+            return key;
+        } else {
+            throw new IndexOutOfRangeException("Incorrect menu action.");
+        }
+
     }
 
 }
