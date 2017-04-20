@@ -3,6 +3,7 @@ package ru.job4j.tracker.start;
 import org.junit.Test;
 import ru.job4j.tracker.controller.StubInput;
 import ru.job4j.tracker.controller.Tracker;
+import ru.job4j.tracker.exceptions.IndexOutOfRangeException;
 import ru.job4j.tracker.ui.StartUI;
 
 import static org.hamcrest.core.Is.is;
@@ -19,9 +20,11 @@ public class StartUITest {
 
     /**
      * method tests add to tracker at StartUI with stub input.
+     *
+     * @throws IndexOutOfRangeException if users type invalid action
      */
     @Test
-    public void whenAddItemThenFindAllReturnSameItem() {
+    public void whenAddItemThenFindAllReturnSameItem() throws IndexOutOfRangeException {
 
         String[] answers = {"0", "name", "description", "6"};
 
@@ -43,9 +46,11 @@ public class StartUITest {
 
     /**
      * method tests find by id in tracker at StartUI with stub input.
+     *
+     * @throws IndexOutOfRangeException if users type invalid action
      */
     @Test
-    public void whenAddItemThenGetByIdReturnSameItem() {
+    public void whenAddItemThenGetByIdReturnSameItem() throws IndexOutOfRangeException {
 
         String[] answers = {"0", "name", "description", "6"};
 
@@ -67,9 +72,11 @@ public class StartUITest {
 
     /**
      * method tests find by name in tracker at StartUI with stub input.
+     *
+     * @throws IndexOutOfRangeException if users type invalid action
      */
     @Test
-    public void whenAddItemThenGetByNameReturnSameItem() {
+    public void whenAddItemThenGetByNameReturnSameItem() throws IndexOutOfRangeException {
 
         String[] answers = {"0", "name", "description", "6"};
 
@@ -91,9 +98,11 @@ public class StartUITest {
 
     /**
      * method tests delete from tracker at StartUI with stub input.
+     *
+     * @throws IndexOutOfRangeException if users type invalid action
      */
     @Test
-    public void whenAddTwoSameItemsAndDeleteOneThenFindAllReturnOneItem() {
+    public void whenAddTwoSameItemsAndDeleteOneThenFindAllReturnOneItem() throws IndexOutOfRangeException {
 
         String[] answers = {"0", "name", "description", "0", "name1", "description1", "3", "1", "6"};
 
@@ -115,9 +124,11 @@ public class StartUITest {
 
     /**
      * method tests update item in tracker at StartUI with stub input.
+     *
+     * @throws IndexOutOfRangeException if users type invalid action
      */
     @Test
-    public void whenAddOneItemAndUpdateThenFindAllReturnOneUpdatedItem() {
+    public void whenAddOneItemAndUpdateThenFindAllReturnOneUpdatedItem() throws IndexOutOfRangeException {
 
         String[] answers = {"0", "name", "description", "2", "1", "0", "example", "6"};
 
