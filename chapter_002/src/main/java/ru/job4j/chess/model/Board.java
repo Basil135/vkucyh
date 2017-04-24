@@ -18,10 +18,6 @@ public class Board {
      */
     private int size = 8;
     /**
-     * parameter figure is a figure of chess that shoud be move.
-     */
-    private Figure figure;
-    /**
      * parameter figures is double array of figures as board of chess.
      */
     private Figure[][] figures = new Figure[size][size];
@@ -29,8 +25,8 @@ public class Board {
     /**
      * method take a figure from figures array at position cell and return it.
      *
-     * @param cell is position of figure at figures array
-     * @return return a figure at position cell
+     * @param cell is cell of the board
+     * @return return a figure
      */
     public Figure getFigure(final Cell cell) {
         return this.figures[cell.getX()][cell.getY()];
@@ -39,10 +35,10 @@ public class Board {
     /**
      * method set a figure to array figures to position cell.
      *
-     * @param cell is position at array figures
+     * @param figure is figure
      */
-    public void setFigure(final Cell cell) {
-        this.figure = figures[cell.getX()][cell.getY()];
+    public void setFigure(final Figure figure) {
+        this.figures[figure.position.getX()][figure.position.getY()] = figure;
     }
 
     /**
@@ -58,7 +54,7 @@ public class Board {
     public boolean move(final Cell source, final Cell dest) throws ImpossibleMoveException,
                                                                     OccupiedWayException, FigureNotFoundException {
 
-        figure = getFigure(source);
+        Figure figure = figures[source.getX()][source.getY()];
 
         if (figure == null) {
             throw new FigureNotFoundException();
@@ -67,14 +63,20 @@ public class Board {
         Cell[] way = figure.way(dest);
 
         for (Cell cell : way) {
-            if (getFigure(cell) != null) {
+
+            if (figures[cell.getX()][cell.getY()] != null) {
+                if (dest.getX() == cell.getX() && figures[cell.getX()][cell.getY()].fraction != figure.fraction && figure.getClass() != Pawn.class) {
+                    break;
+                }
+
                 throw new OccupiedWayException();
+
             }
         }
 
-        setFigure(dest);
-        figure = null;
-        setFigure(source);
+        //figure.position = dest;
+        figures[dest.getX()][dest.getY()] = figure;
+        figures[source.getX()][source.getY()] = null;
 
         return true;
 
