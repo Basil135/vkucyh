@@ -9,7 +9,7 @@ import ru.job4j.chess.exceptions.ImpossibleMoveException;
  * @version $Id$
  * @since 20.04.2017
  */
-public abstract class Figure {
+abstract class Figure {
 
     /**
      * parameter position describes the position of the figure.
@@ -17,12 +17,19 @@ public abstract class Figure {
     final Cell position;
 
     /**
+     * parameter fraction describes the fraction of the figure.
+     */
+    final Fraction fraction;
+
+    /**
      * constructor of class Figure set figure to a position.
      *
      * @param position is position on the board
+     * @param fraction is fraction of the chess application
      */
-    public Figure(Cell position) {
+    Figure(final Cell position, final Fraction fraction) {
         this.position = position;
+        this.fraction = fraction;
     }
 
     /**
@@ -30,7 +37,25 @@ public abstract class Figure {
      *
      * @param destination is cell as destination on the board.
      * @return array of cells as way to destination
+     * @throws ImpossibleMoveException if this figure can not move from position to destination
      */
     abstract Cell[] way(Cell destination) throws ImpossibleMoveException;
+
+    /**
+     * method describes changes if coordinates when figure move.
+     *
+     * @param one is the source number of coordinates
+     * @param two is the second number of coordinates
+     * @return number that bigger or smaller from position
+     */
+    int rule(int one, int two) {
+        if (one > two) {
+            return --one;
+        } else if (one < two) {
+            return ++one;
+        } else {
+            return one;
+        }
+    }
 
 }
