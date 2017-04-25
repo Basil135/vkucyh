@@ -14,7 +14,7 @@ abstract class Figure {
     /**
      * parameter position describes the position of the figure.
      */
-    final Cell position;
+    Cell position;
 
     /**
      * parameter fraction describes the fraction of the figure.
