@@ -53,4 +53,15 @@ public class Rook extends Figure {
 
     }
 
+    /**
+     * method clone figure and return new figure.
+     *
+     * @param destination is cell as position of new figure
+     * @return clone figure
+     */
+    @Override
+    public Figure clone(Cell destination) {
+        return new Rook(destination, this.fraction);
+    }
+
 }
