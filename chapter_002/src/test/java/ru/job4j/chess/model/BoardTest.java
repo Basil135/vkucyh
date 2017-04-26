@@ -45,7 +45,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(elephant));
+        assertTrue(actualFigure.getClass() == Bishop.class);
 
     }
 
@@ -76,7 +76,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(elephant));
+        assertTrue(actualFigure.getClass() == Bishop.class);
 
     }
 
@@ -107,7 +107,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(elephant));
+        assertTrue(actualFigure.getClass() == Bishop.class);
 
     }
 
@@ -212,7 +212,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(bishop));
+        assertTrue(actualFigure.getClass() == Bishop.class);
 
     }
 
@@ -245,7 +245,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(king));
+        assertTrue(actualFigure.getClass() == King.class);
 
     }
 
@@ -278,7 +278,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(king));
+        assertTrue(actualFigure.getClass() == King.class);
 
     }
 
@@ -311,7 +311,7 @@ public class BoardTest {
 
         actualFigure = board.getFigure(destination);
 
-        assertThat(actualFigure, is(king));
+        assertTrue(actualFigure.getClass() == King.class);
 
     }
 
@@ -411,7 +411,7 @@ public class BoardTest {
         assertTrue(flag);
 
         assertThat(board.getFigure(source), is((Figure) null));
-        assertThat(board.getFigure(dest), is(pawn));
+        assertTrue(board.getFigure(dest).getClass() == Pawn.class);
 
     }
 
@@ -439,7 +439,7 @@ public class BoardTest {
         assertTrue(flag);
 
         assertThat(board.getFigure(source), is((Figure) null));
-        assertThat(board.getFigure(dest), is(pawn));
+        assertTrue(board.getFigure(dest).getClass() == Pawn.class);
 
     }
 
@@ -467,7 +467,7 @@ public class BoardTest {
         assertTrue(flag);
 
         assertThat(board.getFigure(source), is((Figure) null));
-        assertThat(board.getFigure(dest), is(pawn));
+        assertTrue(board.getFigure(dest).getClass() == Pawn.class);
 
     }
 
@@ -495,7 +495,7 @@ public class BoardTest {
         assertTrue(flag);
 
         assertThat(board.getFigure(source), is((Figure) null));
-        assertThat(board.getFigure(dest), is(pawn));
+        assertTrue(board.getFigure(dest).getClass() == Pawn.class);
 
     }
 
@@ -594,7 +594,7 @@ public class BoardTest {
 
         assertTrue(flag);
         assertThat(board.getFigure(source), is((Figure) null));
-        assertThat(board.getFigure(dest), is(knight));
+        assertTrue(board.getFigure(dest).getClass() == Knight.class);
 
     }
 
@@ -621,7 +621,7 @@ public class BoardTest {
 
         assertTrue(flag);
         assertThat(board.getFigure(source), is((Figure) null));
-        assertThat(board.getFigure(dest), is(knight));
+        assertTrue(board.getFigure(dest).getClass() == Knight.class);
 
     }
 
@@ -678,7 +678,7 @@ public class BoardTest {
 
         assertTrue(flag);
 
-        assertThat(board.getFigure(stepThree), is(queen));
+        assertTrue(board.getFigure(stepThree).getClass() == Queen.class);
         assertThat(board.getFigure(stepTwo), is((Figure) null));
         assertThat(board.getFigure(stepOne), is((Figure) null));
         assertThat(board.getFigure(source), is((Figure) null));
@@ -734,7 +734,7 @@ public class BoardTest {
 
         assertTrue(flag);
 
-        assertThat(board.getFigure(stepTwo), is(rook));
+        assertTrue(board.getFigure(stepTwo).getClass() == Rook.class);
         assertThat(board.getFigure(stepOne), is((Figure) null));
         assertThat(board.getFigure(source), is((Figure) null));
 
