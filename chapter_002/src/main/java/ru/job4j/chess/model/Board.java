@@ -65,13 +65,9 @@ public class Board {
         for (Cell cell : way) {
 
             if (figures[cell.getX()][cell.getY()] != null) {
-                if (dest.getX() == cell.getX() && figures[cell.getX()][cell.getY()].fraction != figure.fraction && figure.getClass() != Pawn.class) {
-                    break;
-                }
-
                 throw new OccupiedWayException();
-
             }
+
         }
 
         figure = figure.clone(dest);
