@@ -14,7 +14,7 @@ abstract class Figure {
     /**
      * parameter position describes the position of the figure.
      */
-    Cell position;
+    final Cell position;
 
     /**
      * parameter fraction describes the fraction of the figure.
@@ -40,6 +40,14 @@ abstract class Figure {
      * @throws ImpossibleMoveException if this figure can not move from position to destination
      */
     abstract Cell[] way(Cell destination) throws ImpossibleMoveException;
+
+    /**
+     * method clone a figure and return new figure;
+     *
+     * @param destination is cell as position of new figure
+     * @return clone figure
+     */
+    abstract Figure clone(Cell destination);
 
     /**
      * method describes changes if coordinates when figure move.
