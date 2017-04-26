@@ -74,7 +74,7 @@ public class Board {
             }
         }
 
-        figure.position = dest;
+        figure = figure.clone(dest);
         figures[dest.getX()][dest.getY()] = figure;
         figures[source.getX()][source.getY()] = null;
 
