@@ -31,16 +31,16 @@ public class Rook extends Figure {
     @Override
     public Cell[] way(Cell destination) throws ImpossibleMoveException {
 
-        if (position.getX() != destination.getX() && position.getY() != destination.getY()) {
+        if (getPosition().getX() != destination.getX() && getPosition().getY() != destination.getY()) {
             throw new ImpossibleMoveException();
         }
 
-        int size = position.getX() == destination.getX() ? Math.abs(position.getY() - destination.getY())
-                                                         : Math.abs(position.getX() - destination.getX());
+        int size = getPosition().getX() == destination.getX() ? Math.abs(getPosition().getY() - destination.getY())
+                                                         : Math.abs(getPosition().getX() - destination.getX());
 
         Cell[] result = new Cell[size];
 
-        Cell source = position;
+        Cell source = getPosition();
 
         for (int count = 0; count < result.length; count++) {
 
@@ -61,7 +61,7 @@ public class Rook extends Figure {
      */
     @Override
     public Figure clone(Cell destination) {
-        return new Rook(destination, this.fraction);
+        return new Rook(destination, this.getFraction());
     }
 
 }
