@@ -31,8 +31,8 @@ public class King extends Figure {
     @Override
     Cell[] way(Cell destination) throws ImpossibleMoveException {
 
-        int conditionX = Math.abs(position.getX() - destination.getX());
-        int conditionY = Math.abs(position.getY() - destination.getY());
+        int conditionX = Math.abs(getPosition().getX() - destination.getX());
+        int conditionY = Math.abs(getPosition().getY() - destination.getY());
 
         if (conditionX == 0 && conditionY == 0 || conditionX > 1 || conditionY > 1) {
             throw new ImpossibleMoveException();
@@ -54,7 +54,7 @@ public class King extends Figure {
      */
     @Override
     public Figure clone(Cell destination) {
-        return new King(destination, this.fraction);
+        return new King(destination, this.getFraction());
     }
 
 }
