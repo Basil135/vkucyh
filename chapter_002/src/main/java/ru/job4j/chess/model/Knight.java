@@ -31,8 +31,8 @@ public class Knight extends Figure {
     @Override
     Cell[] way(Cell destination) throws ImpossibleMoveException {
 
-        if ((Math.abs(position.getX() - destination.getX()) != 2 || Math.abs(position.getY() - destination.getY()) != 1)
-         && (Math.abs(position.getX() - destination.getX()) != 1 || Math.abs(position.getY() - destination.getY()) != 2)) {
+        if ((Math.abs(getPosition().getX() - destination.getX()) != 2 || Math.abs(getPosition().getY() - destination.getY()) != 1)
+         && (Math.abs(getPosition().getX() - destination.getX()) != 1 || Math.abs(getPosition().getY() - destination.getY()) != 2)) {
             throw new ImpossibleMoveException();
         }
 
@@ -52,7 +52,7 @@ public class Knight extends Figure {
      */
     @Override
     public Figure clone(Cell destination) {
-        return new Knight(destination, this.fraction);
+        return new Knight(destination, this.getFraction());
     }
 
 }
