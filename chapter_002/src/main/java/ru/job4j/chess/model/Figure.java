@@ -14,12 +14,12 @@ abstract class Figure {
     /**
      * parameter position describes the position of the figure.
      */
-    final Cell position;
+    private final Cell position;
 
     /**
      * parameter fraction describes the fraction of the figure.
      */
-    final Fraction fraction;
+    private final Fraction fraction;
 
     /**
      * constructor of class Figure set figure to a position.
@@ -42,7 +42,7 @@ abstract class Figure {
     abstract Cell[] way(Cell destination) throws ImpossibleMoveException;
 
     /**
-     * method clone a figure and return new figure;
+     * method clone a figure and return new figure.
      *
      * @param destination is cell as position of new figure
      * @return clone figure
@@ -64,6 +64,24 @@ abstract class Figure {
         } else {
             return one;
         }
+    }
+
+    /**
+     * method return position of figure.
+     *
+     * @return position of the figure
+     */
+    public Cell getPosition() {
+        return this.position;
+    }
+
+    /**
+     * method return fraction of the figure.
+     *
+     * @return fraction of the figure
+     */
+    public Fraction getFraction() {
+        return this.fraction;
     }
 
 }
