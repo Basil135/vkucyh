@@ -31,13 +31,13 @@ public class Pawn extends Figure {
     @Override
     Cell[] way(Cell destination) throws ImpossibleMoveException {
 
-        if ((position.getY() != destination.getY())
-            || (fraction == Fraction.black && position.getX() > destination.getX())
-            || (fraction == Fraction.white && position.getX() < destination.getX())
-            || (Math.abs(position.getX() - destination.getX()) > 1 && position.getX() != 1 && fraction == Fraction.black)
-            || (Math.abs(position.getX() - destination.getX()) > 1 && position.getX() != 6 && fraction == Fraction.white)
-            || (Math.abs(position.getX() - destination.getX()) > 2 && position.getX() == 6 && fraction == Fraction.white)
-            || (Math.abs(position.getX() - destination.getX()) > 2 && position.getX() == 1 && fraction == Fraction.black)) {
+        if ((getPosition().getY() != destination.getY())
+            || (getFraction() == Fraction.black && getPosition().getX() > destination.getX())
+            || (getFraction() == Fraction.white && getPosition().getX() < destination.getX())
+            || (Math.abs(getPosition().getX() - destination.getX()) > 1 && getPosition().getX() != 1 && getFraction() == Fraction.black)
+            || (Math.abs(getPosition().getX() - destination.getX()) > 1 && getPosition().getX() != 6 && getFraction() == Fraction.white)
+            || (Math.abs(getPosition().getX() - destination.getX()) > 2 && getPosition().getX() == 6 && getFraction() == Fraction.white)
+            || (Math.abs(getPosition().getX() - destination.getX()) > 2 && getPosition().getX() == 1 && getFraction() == Fraction.black)) {
 
             throw new ImpossibleMoveException();
 
@@ -45,11 +45,11 @@ public class Pawn extends Figure {
 
         Cell[] result;
 
-        if (position.getX() == 1 && destination.getX() == 3 && fraction == Fraction.black
-         || position.getX() == 6 && destination.getX() == 4 && fraction == Fraction.white) {
+        if (getPosition().getX() == 1 && destination.getX() == 3 && getFraction() == Fraction.black
+         || getPosition().getX() == 6 && destination.getX() == 4 && getFraction() == Fraction.white) {
 
             result = new Cell[2];
-            result[0] = new Cell(rule(position.getX(), destination.getX()), position.getY());
+            result[0] = new Cell(rule(getPosition().getX(), destination.getX()), getPosition().getY());
             result[1] = destination;
 
         } else {
@@ -72,7 +72,7 @@ public class Pawn extends Figure {
      */
     @Override
     public Figure clone(Cell destination) {
-        return new Pawn(destination, this.fraction);
+        return new Pawn(destination, this.getFraction());
     }
 
 }
