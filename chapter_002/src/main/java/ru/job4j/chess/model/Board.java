@@ -38,7 +38,7 @@ public class Board {
      * @param figure is figure
      */
     public void setFigure(final Figure figure) {
-        this.figures[figure.position.getX()][figure.position.getY()] = figure;
+        this.figures[figure.getPosition().getX()][figure.getPosition().getY()] = figure;
     }
 
     /**
