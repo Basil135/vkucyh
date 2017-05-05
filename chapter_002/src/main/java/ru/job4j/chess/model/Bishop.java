@@ -31,16 +31,16 @@ public class Bishop extends Figure {
     @Override
     public Cell[] way(final Cell destination) throws ImpossibleMoveException {
 
-        if (Math.abs(position.getX() - destination.getX()) != Math.abs(position.getY() - destination.getY())
-                                                                    || position.getX() == destination.getX()) {
+        if (Math.abs(getPosition().getX() - destination.getX()) != Math.abs(getPosition().getY() - destination.getY())
+                                                                    || getPosition().getX() == destination.getX()) {
 
             throw new ImpossibleMoveException();
 
         }
 
-        Cell[] result = new Cell[Math.abs(position.getX() - destination.getX())];
+        Cell[] result = new Cell[Math.abs(getPosition().getX() - destination.getX())];
 
-        Cell source = position;
+        Cell source = getPosition();
 
         for (int i = 0; i < result.length; i++) {
             source = new Cell(rule(source.getX(), destination.getX()), rule(source.getY(), destination.getY()));
@@ -59,7 +59,7 @@ public class Bishop extends Figure {
      */
     @Override
     public Figure clone(Cell destination) {
-        return new Bishop(destination, this.fraction);
+        return new Bishop(destination, this.getFraction());
     }
 
 }
