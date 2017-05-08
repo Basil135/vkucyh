@@ -71,4 +71,28 @@ public class Convert {
 
     }
 
+    /**
+     * method convert list of array of integers to list of integers.
+     *
+     * @param list is input list of array of integers
+     * @return list of integers
+     */
+    public List<Integer> convert(List<int[]> list) {
+
+        List<Integer> result = new ArrayList<>();
+
+        for (int[] array : list) {
+
+            for (int number : array) {
+
+                result.add(number);
+
+            }
+
+        }
+
+        return result;
+
+    }
+
 }
