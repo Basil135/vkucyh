@@ -1,4 +1,4 @@
-package ru.job4j.collectionsLite.collectionsFramework;
+package ru.job4j.collections.framework;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -20,7 +20,7 @@ public class TimeTestCollection {
      * @param amount is number of times we need to add
      * @return how many millis gone
      */
-    public long add(Collection<String> collection, String[] line, int amount){
+    public long add(Collection<String> collection, String[] line, int amount) {
 
         long result = System.currentTimeMillis();
 

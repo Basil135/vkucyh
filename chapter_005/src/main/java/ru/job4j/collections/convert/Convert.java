@@ -1,4 +1,4 @@
-package ru.job4j.collectionsLite.convert;
+package ru.job4j.collections.convert;
 
 import java.util.ArrayList;
 import java.util.List;

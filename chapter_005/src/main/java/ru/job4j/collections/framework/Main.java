@@ -1,6 +1,10 @@
-package ru.job4j.collectionsLite.collectionsFramework;
+package ru.job4j.collections.framework;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * This class is tests by hand of TimeTestCollection class.
