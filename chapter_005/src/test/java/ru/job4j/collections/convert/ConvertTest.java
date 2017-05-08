@@ -80,4 +80,29 @@ public class ConvertTest {
 
     }
 
+    /**
+     * method tests that list of array of integers convert to list of integers.
+     */
+    @Test
+    public void whenListOfThreeArrayOfIntegersThenOneListOfIntegers() {
+
+        Convert convert = new Convert();
+
+        List<int[]> testList = new ArrayList<>();
+
+        testList.add(new int[] {1, 2});
+        testList.add(new int[] {3, 4, 5, 6});
+        testList.add(new int[] {7, 8, 9});
+
+        List<Integer> expectedList = new ArrayList<>();
+        List<Integer> actualList = convert.convert(testList);
+
+        for (int count = 1; count < 10; count++) {
+            expectedList.add(count);
+        }
+
+        assertThat(actualList, is(expectedList));
+
+    }
+
 }
