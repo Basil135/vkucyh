@@ -60,6 +60,27 @@ public class ConvertTest {
     }
 
     /**
+     * method tests that list of nine integers convert to double array of integers with three rows.
+     */
+    @Test
+    public void whenListOfNineIntegersThenDoubleArrayOfNineIntegersInThreeRows() {
+
+        Convert convert = new Convert();
+
+        List<Integer> testList = new ArrayList<>();
+
+        for (int count = 1; count < 10; count++) {
+            testList.add(count);
+        }
+
+        int[][] expectedArray = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] actualArray = convert.toArray(testList, 3);
+
+        assertThat(actualArray, is(expectedArray));
+
+    }
+
+    /**
      * method tests that list of fifteen integers convert to double array of integers with four rows.
      */
     @Test
