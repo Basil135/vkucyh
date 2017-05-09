@@ -2,6 +2,9 @@ package ru.job4j.tracker.controller;
 
 import ru.job4j.tracker.models.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * this class contains inner classes as user's actions and managed all actions.
  *
@@ -20,9 +23,14 @@ public class UserAction {
      */
     private final Tracker tracker;
     /**
+     * parameter list of actions.
+     */
+    private final List<IAction> actions = new ArrayList<>();
+
+    /**
      * array of user's actions.
      */
-    private final IAction[] actions = new IAction[7];
+//    private final IAction[] actions = new IAction[7];
 
     /**
      * constructor of class.
@@ -40,13 +48,13 @@ public class UserAction {
      */
     public void fillActions() {
 
-        actions[0] = new UserAction.AddItem();
-        actions[1] = new UserAction.FindAll();
-        actions[2] = new UserAction.UpdateItem();
-        actions[3] = new UserAction.DeleteItem();
-        actions[4] = new UserAction.FindItemById();
-        actions[5] = new UserAction.FindItemsByName();
-        actions[6] = new UserAction.ExitTracker();
+        actions.add(new UserAction.AddItem());
+        actions.add(new UserAction.FindAll());
+        actions.add(new UserAction.UpdateItem());
+        actions.add(new UserAction.DeleteItem());
+        actions.add(new UserAction.FindItemById());
+        actions.add(new UserAction.FindItemsByName());
+        actions.add(new UserAction.ExitTracker());
 
     }
 
@@ -57,7 +65,7 @@ public class UserAction {
      */
     public int[] getRangeOfActions() {
 
-        int[] result = new int[actions.length];
+        int[] result = new int[actions.size()];
         int count = 0;
 
         for (IAction action : actions) {
@@ -94,13 +102,13 @@ public class UserAction {
     }
 
     /**
-     * method select action from array of actions.
+     * method select action from list of actions.
      *
      * @param key is user's selection
      * @return action that need to be execute
      */
     public IAction select(int key) {
-        return actions[key];
+        return actions.get(key);
     }
 
     /**
