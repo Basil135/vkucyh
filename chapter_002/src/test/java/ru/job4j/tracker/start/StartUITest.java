@@ -37,8 +37,8 @@ public class StartUITest {
 
         new StartUI(input, tracker).init();
 
-        actualArray[0] = tracker.findAll()[0].getName();
-        actualArray[1] = tracker.findAll()[0].getDescription();
+        actualArray[0] = tracker.findAll().get(0).getName();
+        actualArray[1] = tracker.findAll().get(0).getDescription();
 
         assertThat(actualArray, is(expectedArray));
 
@@ -89,8 +89,8 @@ public class StartUITest {
 
         new StartUI(input, tracker).init();
 
-        actualArray[0] = tracker.findByName("name")[0].getName();
-        actualArray[1] = tracker.findByName("name")[0].getDescription();
+        actualArray[0] = tracker.findByName("name").get(0).getName();
+        actualArray[1] = tracker.findByName("name").get(0).getDescription();
 
         assertThat(actualArray, is(expectedArray));
 
@@ -115,8 +115,8 @@ public class StartUITest {
 
         new StartUI(input, tracker).init();
 
-        actual[0] = tracker.findAll()[0].getName();
-        actual[1] = tracker.findAll()[0].getDescription();
+        actual[0] = tracker.findAll().get(0).getName();
+        actual[1] = tracker.findAll().get(0).getDescription();
 
         assertThat(actual, is(expected));
 
@@ -141,8 +141,8 @@ public class StartUITest {
 
         new StartUI(input, tracker).init();
 
-        actual[0] = tracker.findAll()[0].getName();
-        actual[1] = tracker.findAll()[0].getDescription();
+        actual[0] = tracker.findAll().get(0).getName();
+        actual[1] = tracker.findAll().get(0).getDescription();
 
         assertThat(actual, is(expected));
 
