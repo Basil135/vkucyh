@@ -2,6 +2,9 @@ package ru.job4j.tracker.controller;
 
 import ru.job4j.tracker.models.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class describes tracker.
  *
@@ -16,65 +19,48 @@ public class Tracker {
      */
     private int id = 1;
     /**
-     * parameter index is index of array items.
+     * parameter items is list of items.
      */
-    private int index = 0;
-    /**
-     * parameter size is started size of array items.
-     */
-    private int size = 0;
-    /**
-     * parameter items is array of Item.
-     */
-    private Item[] items = new Item[8];
+    private List<Item> items = new ArrayList<>();
 
     /**
      * method return length of array items.
      *
-     * @return length of array items
+     * @return length of list of items
      */
     public int size() {
-        return size;
+        return this.items.size();
     }
 
     /**
-     * method add item to array items.
+     * method add item to list of items.
      *
-     * @param item is item to put to array
-     * @return item that put to array
+     * @param item is item to put to list
+     * @return item that put to list
      */
     public Item add(Item item) {
 
         item.setId(String.valueOf(id++));
 
-        if (index < items.length) {
-            items[index++] = item;
-            size++;
-        } else {
-
-            Item[] newItems = new Item[items.length * 2];
-            System.arraycopy(items, 0, newItems, 0, items.length);
-            items = newItems;
-            items[index++] = item;
-            size++;
-
-        }
+        items.add(item);
 
         return item;
 
     }
 
     /**
-     * method update an item of array items.
+     * method update an item to list of items.
      *
      * @param item is input item
      */
     public void update(Item item) {
 
-        for (int count = 0; count < items.length; count++) {
+        for (Item counter : this.items) {
 
-            if (items[count].getId().equals(item.getId())) {
-                items[count] = item;
+            int index = this.items.lastIndexOf(counter);
+
+            if (counter.getId().equals(item.getId())) {
+                this.items.set(index, item);
                 break;
             }
 
@@ -89,65 +75,35 @@ public class Tracker {
      */
     public void delete(Item item) {
 
-        for (int count = 0; count < this.size(); count++) {
-
-            if (items[count].getId().equals(item.getId())) {
-                System.arraycopy(items, count + 1, items, count, items.length - count - 1);
-                items[items.length - 1] = null;
-                size--;
-                break;
-            }
-
-        }
+        items.remove(item);
 
     }
 
     /**
-     * method return array items.
+     * method return list of items.
      *
-     * @return array items
+     * @return list of items
      */
-    public Item[] findAll() {
+    public List<Item> findAll() {
 
-        Item[] result = new Item[this.size()];
-
-        for (int count = 0; count < this.size(); count++) {
-            result[count] = items[count];
-        }
-
-        return result;
+        return items;
 
     }
 
     /**
-     * method return array of items that name of item equals key.
+     * method return list of items that name of item equals key.
      *
      * @param key is input string as name of an item
-     * @return array of items
+     * @return list of items
      */
-    public Item[] findByName(String key) {
+    public List<Item> findByName(String key) {
 
-        int size = 0;
-        int index = 0;
+        List<Item> result = new ArrayList<>();
 
-        for (int count = 0; count < this.size(); count++) {
-            if (items[count].getName().equals(key)) {
-                size++;
-            }
-        }
+        for (Item item : this.items) {
 
-        Item[] result = new Item[size];
-
-        for (int count = 0; count < items.length; count++) {
-
-            if (items[count] == null) {
-                break;
-            }
-
-            if (items[count].getName().equals(key)) {
-
-                    result[index++] = items[count];
-
+            if (item.getName().equals(key)) {
+                result.add(item);
             }
 
         }
@@ -166,10 +122,10 @@ public class Tracker {
 
         Item result = null;
 
-        for (int count = 0; count < items.length; count++) {
+        for (Item item : this.items) {
 
-            if (items[count].getId().equals(id)) {
-                result = items[count];
+            if (item.getId().equals(id)) {
+                result = item;
                 break;
             }
 
