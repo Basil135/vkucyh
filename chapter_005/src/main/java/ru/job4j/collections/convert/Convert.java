@@ -1,6 +1,7 @@
 package ru.job4j.collections.convert;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -45,21 +46,23 @@ public class Convert {
 
         int index = 0;
 
-        int cols = list.size() / rows + 1;
+        int cols = list.size() % rows == 0 ? list.size() / rows : list.size() / rows + 1;
 
         int[][] result = new int[rows][cols];
+
+        Iterator iterator = list.iterator();
 
         for (int i = 0; i < rows; i++) {
 
             for (int j = 0; j < cols; j++) {
 
-                if (index < list.size()) {
+                if (index++ < list.size()) {
 
-                    result[i][j] = list.get(index++);
+                    result[i][j] = (Integer) iterator.next();
 
                 } else {
 
-                    result[i][j] = 0;
+                    break;
 
                 }
 
