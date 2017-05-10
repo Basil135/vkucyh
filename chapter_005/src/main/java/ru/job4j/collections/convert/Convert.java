@@ -50,7 +50,7 @@ public class Convert {
 
         int[][] result = new int[rows][cols];
 
-        Iterator iterator = list.iterator();
+        Iterator<Integer> iterator = list.iterator();
 
         for (int i = 0; i < rows; i++) {
 
@@ -58,7 +58,7 @@ public class Convert {
 
                 if (index++ < list.size()) {
 
-                    result[i][j] = (Integer) iterator.next();
+                    result[i][j] = iterator.next();
 
                 } else {
 
