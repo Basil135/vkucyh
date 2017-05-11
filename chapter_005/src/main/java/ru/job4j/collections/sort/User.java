@@ -39,6 +39,15 @@ public class User implements Comparable<User> {
     }
 
     /**
+     * method return name of user.
+     *
+     * @return name of user
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
      * method compare this user with user o by age.
      *
      * @param o is user to compare with
@@ -47,6 +56,49 @@ public class User implements Comparable<User> {
     @Override
     public int compareTo(User o) {
         return this.age - o.getAge();
+    }
+
+    /**
+     * method equals compare this user with user o.
+     *
+     * @param o is user compare to
+     * @return true if users are equals
+     */
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        User user = (User) o;
+
+        if (age != user.age) {
+            return false;
+        }
+
+        return name != null ? name.equals(user.name) : user.name == null;
+
+    }
+
+    /**
+     * method return hashcode of user.
+     *
+     * @return hashcode of user
+     */
+    @Override
+    public int hashCode() {
+
+        int result = name != null ? name.hashCode() : 0;
+
+        result = 31 * result + age;
+
+        return result;
+
     }
 
 }
