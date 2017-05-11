@@ -55,4 +55,64 @@ public class SortUserTest {
 
     }
 
+    /**
+     * method tests method sortLength.
+     */
+    @Test
+    public void whenListOfUsersWithDifferentNamesThenSortLengthSortsUsersByLengthOfName() {
+
+        SortUser sort = new SortUser();
+
+        List<User> test = new LinkedList<>();
+
+        User basil = new User("Basil", 27);
+        User alex = new User("Alex", 31);
+        User sam = new User("Sam", 33);
+
+        test.add(basil);
+        test.add(alex);
+        test.add(sam);
+
+        List<User> expected = new LinkedList<>();
+
+        expected.add(sam);
+        expected.add(alex);
+        expected.add(basil);
+
+        List<User> actual = sort.sortLength(test);
+
+        assertThat(actual, is(expected));
+
+    }
+
+    /**
+     * method tests method sortHash.
+     */
+    @Test
+    public void whenListOfUsersWithDifferentNamesAndAgesThenSortHashSortsUsersByHashcode() {
+
+        SortUser sort = new SortUser();
+
+        List<User> test = new LinkedList<>();
+
+        User basil = new User("Basil", 27);
+        User alex = new User("Alex", 31);
+        User sam = new User("Sam", 33);
+
+        test.add(basil);
+        test.add(alex);
+        test.add(sam);
+
+        List<User> expected = new LinkedList<>();
+
+        expected.add(sam);
+        expected.add(alex);
+        expected.add(basil);
+
+        List<User> actual = sort.sortHash(test);
+
+        assertThat(actual, is(expected));
+
+    }
+
 }
