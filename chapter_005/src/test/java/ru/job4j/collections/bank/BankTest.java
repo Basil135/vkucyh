@@ -1,6 +1,11 @@
 package ru.job4j.collections.bank;
 
 import org.junit.Test;
+import ru.job4j.collections.bank.exceptions.UnknownAccountException;
+import ru.job4j.collections.bank.exceptions.UnknownUserException;
+import ru.job4j.collections.bank.model.Account;
+import ru.job4j.collections.bank.model.Bank;
+import ru.job4j.collections.bank.model.User;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,7 +28,7 @@ public class BankTest {
      * method tests methods addUser, addAccount, getUserAccounts.
      */
     @Test
-    public void whenAddUserThenMapHaveThisUser() {
+    public void whenAddUserThenMapHaveThisUser() throws UnknownUserException {
 
         User testUser = new User("Boris", "any passport data");
 
@@ -49,7 +54,7 @@ public class BankTest {
      * method tests method transferMoney from one user's account to another with positive outcome.
      */
     @Test
-    public void whenUserTransferMoneyFromOneAccountToAnotherAccountThenTrue() {
+    public void whenUserTransferMoneyFromOneAccountToAnotherAccountThenTrue() throws UnknownUserException, UnknownAccountException {
 
         User testUser = new User("Boris", "any passport data");
 
@@ -81,8 +86,8 @@ public class BankTest {
     /**
      * method tests method deleteAccountFromUser and deleteUser.
      */
-    @Test
-    public void whenUserTransferMoneyFromOneAccountToAnotherThenFalse() {
+    @Test (expected = UnknownAccountException.class)
+    public void whenUserTransferMoneyFromOneAccountToAnotherThenFalse() throws UnknownUserException, UnknownAccountException {
 
         User testUser = new User("Boris", "any passport data");
 
