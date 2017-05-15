@@ -1,4 +1,4 @@
-package ru.job4j.collections.bank;
+package ru.job4j.collections.bank.model;
 
 /**
  * This class describes account of bank.
@@ -52,6 +52,52 @@ public class Account {
      */
     public long getRequisites() {
         return requisites;
+    }
+
+    /**
+     * method check this account equals to o.
+     *
+     * @param o is input account
+     * @return true if this account equals to o
+     */
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Account account = (Account) o;
+
+        if (Double.compare(account.value, value) != 0) {
+            return false;
+        }
+
+        return requisites == account.requisites;
+
+    }
+
+    /**
+     * method return integer number describes this account.
+     *
+     * @return integer number
+     */
+    @Override
+    public int hashCode() {
+
+        int result;
+        long temp;
+
+        temp = Double.doubleToLongBits(value);
+        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (requisites ^ (requisites >>> 32));
+
+        return result;
+
     }
 
 }
