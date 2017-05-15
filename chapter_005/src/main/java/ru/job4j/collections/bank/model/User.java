@@ -1,4 +1,4 @@
-package ru.job4j.collections.bank;
+package ru.job4j.collections.bank.model;
 
 /**
  * This class describes user of bank.
