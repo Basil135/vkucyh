@@ -3,7 +3,10 @@ package ru.job4j.collections.bank.model;
 import ru.job4j.collections.bank.exceptions.UnknownAccountException;
 import ru.job4j.collections.bank.exceptions.UnknownUserException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * This class describes operation with accounts of any user.
