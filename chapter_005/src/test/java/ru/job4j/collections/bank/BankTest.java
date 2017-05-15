@@ -26,6 +26,8 @@ public class BankTest {
 
     /**
      * method tests methods addUser, addAccount, getUserAccounts.
+     *
+     * @throws UnknownUserException if there is no user at this collection
      */
     @Test
     public void whenAddUserThenMapHaveThisUser() throws UnknownUserException {
@@ -52,6 +54,9 @@ public class BankTest {
 
     /**
      * method tests method transferMoney from one user's account to another with positive outcome.
+     *
+     * @throws UnknownUserException if there is no user at this collection
+     * @throws UnknownAccountException if there is no account at this collection
      */
     @Test
     public void whenUserTransferMoneyFromOneAccountToAnotherAccountThenTrue() throws UnknownUserException, UnknownAccountException {
@@ -85,6 +90,9 @@ public class BankTest {
 
     /**
      * method tests method deleteAccountFromUser and deleteUser.
+     *
+     * @throws UnknownAccountException if there is no account at this collection
+     * @throws UnknownUserException if there is no user at this collection
      */
     @Test (expected = UnknownAccountException.class)
     public void whenUserTransferMoneyFromOneAccountToAnotherThenFalse() throws UnknownUserException, UnknownAccountException {
