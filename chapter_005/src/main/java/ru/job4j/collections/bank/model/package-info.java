@@ -1,4 +1,4 @@
 /**
  * This package uses for banking program.
  */
-package ru.job4j.collections.bank;
+package ru.job4j.collections.bank.model;
