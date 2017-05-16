@@ -53,11 +53,11 @@ public class Bank {
      */
     public void addAccountToUser(User user, Account account) throws UnknownUserException {
 
-        if (client.get(user) != null) {
-            client.get(user).add(account);
-        } else {
+        if (!client.containsKey(user)) {
             throw new UnknownUserException();
         }
+
+            client.get(user).add(account);
 
     }
 
@@ -70,11 +70,11 @@ public class Bank {
      */
     public void deleteAccountFromUser(User user, Account account) throws UnknownUserException {
 
-        if (client.get(user) != null) {
-            client.get(user).remove(account);
-        } else {
+        if (!client.containsKey(user)) {
             throw new UnknownUserException();
         }
+
+            client.get(user).remove(account);
 
     }
 
@@ -87,11 +87,12 @@ public class Bank {
      */
     public List<Account> getUserAccounts(User user) throws UnknownUserException {
 
-        if (client.get(user) != null) {
-            return client.get(user);
-        } else {
+        if (!client.containsKey(user)) {
             throw new UnknownUserException();
         }
+
+            return client.get(user);
+
     }
 
     /**
@@ -109,7 +110,7 @@ public class Bank {
     public boolean transferMoney(User srcUser, Account srcAccount, User dstUser, Account dstAccount, double amount)
                                                                 throws UnknownUserException, UnknownAccountException {
 
-        if (client.get(srcUser) == null || client.get(dstUser) == null) {
+        if (!client.containsKey(srcUser) || !client.containsKey(dstUser)) {
             throw new UnknownUserException();
         }
 
