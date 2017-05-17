@@ -142,6 +142,9 @@ public class Sort {
      * nested class Order describes order to sort.
      */
     public enum Order {
+        /**
+         * parameters describes order to sort.
+         */
         asc, desc;
     }
 
