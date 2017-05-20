@@ -7,7 +7,7 @@ package ru.job4j.collections.test;
  * @version $Id$
  * @since 17.05.2017
  */
-public class Department {
+public class Department implements Comparable<Department> {
 
     /**
      * parameter name is name of the department.
@@ -63,6 +63,11 @@ public class Department {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    @Override
+    public int compareTo(Department o) {
+        return this.getName().compareTo(o.getName());
     }
 
 }
