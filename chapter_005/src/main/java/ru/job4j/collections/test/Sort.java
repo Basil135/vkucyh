@@ -1,8 +1,6 @@
 package ru.job4j.collections.test;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * This class refactor and sort specialize array of strings.
@@ -14,6 +12,11 @@ import java.util.List;
 public class Sort {
 
     /**
+     * parameter departmentSet is Set of departments.
+     */
+    private Set<Department> departmentSet = new TreeSet<>();
+
+    /**
      * method refactor and sort specialize array.
      *
      * @param input is input string array
@@ -22,31 +25,29 @@ public class Sort {
      */
     public String[] sortArray(final String[] input, final Order order) {
 
-        List<Department> departmentList = new ArrayList<>();
-
         for (String str : input) {
-            refactorList(str, departmentList);
+            refactorSet(str, departmentSet);
         }
 
-        makeOrder(departmentList, order);
+        makeOrder(departmentSet, order);
 
-        return listToStringArray(departmentList);
+        return listToStringArray(departmentSet);
 
     }
 
     /**
      * method converts list of department to string array.
      *
-     * @param list is input list of department
+     * @param set is input set of department
      * @return string array
      */
-    private String[] listToStringArray(List<Department> list) {
+    private String[] listToStringArray(Set<Department> set) {
 
-        String[] result = new String[list.size()];
+        String[] result = new String[set.size()];
 
         int index = 0;
 
-        for (Department dep : list) {
+        for (Department dep : set) {
             result[index++] = dep.getName();
         }
 
@@ -58,9 +59,9 @@ public class Sort {
      * method add missing departments to list of department.
      *
      * @param input is input string
-     * @param list is input list
+     * @param set is input set
      */
-    private void refactorList(String input, List<Department> list) {
+    private void refactorSet(String input, Set<Department> set) {
 
         StringBuilder department = new StringBuilder();
 
@@ -68,8 +69,8 @@ public class Sort {
 
             department.append(sub);
 
-            if (!list.contains(new Department(department.toString()))) {
-                list.add(new Department(department.toString()));
+            if (!set.contains(new Department(department.toString()))) {
+                set.add(new Department(department.toString()));
             }
 
             department.append("\\");
@@ -81,15 +82,23 @@ public class Sort {
     /**
      * method sorts input list by input order.
      *
-     * @param list is input list
+     * @param set is input set
      * @param order is input order
      */
-    private void makeOrder(List<Department> list, Order order) {
+    private void makeOrder(Set<Department> set, Order order) {
 
         if (order == Order.desc) {
-            list.sort(cmpDesc());
+
+            Set<Department> newSet = new TreeSet<>(cmpDesc());
+            newSet.addAll(set);
+            this.departmentSet = newSet;
+
         } else {
-            list.sort(cmpAsc());
+
+            Set<Department> newSet = new TreeSet<>(cmpAsc());
+            newSet.addAll(set);
+            this.departmentSet = newSet;
+
         }
 
     }
