@@ -24,12 +24,12 @@ public class ArrayIteratorTest {
 
         ArrayIterator arrayIterator = new ArrayIterator(testArray);
 
-        int index= 0;
+        int index = 0;
 
         int[] expectedValue = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] actualValue = new int[9];
 
-        while(arrayIterator.hasNext()) {
+        while (arrayIterator.hasNext()) {
             actualValue[index++] = arrayIterator.next();
         }
 
