@@ -1,6 +1,8 @@
 package ru.job4j.collections.test;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * This class refactor and sort specialize array of strings.
