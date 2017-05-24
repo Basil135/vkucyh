@@ -87,10 +87,17 @@ public class LinkedList<E> implements Iterable<E> {
      */
     private class Node<E> {
 
+        /**
+         * parameter prev is link to previous node.
+         */
         private Node<E> prev;
-
+        /**
+         * parameter next is link to next nod.
+         */
         private Node<E> next;
-
+        /**
+         * parameter value is value of the node.
+         */
         private E value;
 
     }
