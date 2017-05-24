@@ -10,17 +10,17 @@ package ru.job4j.pro.generic;
 public abstract class Base {
 
     /**
-     * abstract method getId return id as A String
+     * abstract method getId return id as A String.
      *
      * @return String Id
      */
-    abstract public String getId();
+    abstract String getId();
 
     /**
      * abstract method setId is setting id.
      *
      * @param id is identification string
      */
-    abstract public void setId(String id);
+    abstract void setId(String id);
 
 }
