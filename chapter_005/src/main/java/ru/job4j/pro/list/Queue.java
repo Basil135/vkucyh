@@ -10,17 +10,17 @@ public class Queue<E> {
     /**
      * parameter first is link to first element of the queue.
      */
-    Node<E> first;
+    private Node<E> first;
     /**
      * parameter last is link to last element of the queue.
      */
-    Node<E> last;
+    private Node<E> last;
 
     /**
-     * method add element to the and of collection
+     * method add element to the and of collection.
      *
-     * @param element
-     * @return
+     * @param element is input element
+     * @return true
      */
     public boolean push(E element) {
 
@@ -74,11 +74,11 @@ public class Queue<E> {
         /**
          * parameter next is link to next element of list.
          */
-        Node<E> next;
+        private Node<E> next;
         /**
          * parameter value is value of node.
          */
-        E value;
+        private E value;
 
     }
 
