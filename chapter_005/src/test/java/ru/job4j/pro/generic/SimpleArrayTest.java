@@ -33,7 +33,7 @@ public class SimpleArrayTest {
 
         String[] expectedArray = {"hello", "stranger"};
         String[] actualArray = new String[1];
-        actualArray= stringSimpleArray.toArray(actualArray);
+        actualArray = stringSimpleArray.toArray(actualArray);
 
         assertThat(actualArray, is(expectedArray));
 
