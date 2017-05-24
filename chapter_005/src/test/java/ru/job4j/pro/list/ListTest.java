@@ -90,7 +90,7 @@ public class ListTest {
 
         int index = 0;
 
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             actualArray[index++] = stack.pop();
         }
 
@@ -119,7 +119,7 @@ public class ListTest {
 
         int index = 0;
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             actualArray[index++] = queue.pop();
         }
 
