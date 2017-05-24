@@ -15,11 +15,11 @@ public class EvenIterator implements Iterator<Integer> {
     /**
      * parameter array is array of numbers.
      */
-    final private int[] array;
+    private final int[] array;
     /**
      * parameter index is position of element in the array.
      */
-    int index = 0;
+    private int index = 0;
 
     /**
      * constructor of this class.
