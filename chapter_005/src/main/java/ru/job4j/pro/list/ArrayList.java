@@ -43,6 +43,12 @@ public class ArrayList<E> implements Iterable<E> {
         return true;
     }
 
+    /**
+     * method get element from array by index.
+     *
+     * @param index is input number
+     * @return element
+     */
     public E get(int index) {
         return (E) this.arrayElements[index];
     }
