@@ -41,13 +41,7 @@ public class ArrayIterator implements Iterator<Integer> {
      */
     @Override
     public boolean hasNext() {
-        boolean result = true;
-
-        if (indexRow == doubleArray.length - 1 && indexCol == doubleArray[indexRow].length) {
-            result = false;
-        }
-
-        return result;
+        return !(indexRow == doubleArray.length - 1 && indexCol == doubleArray[indexRow].length);
     }
 
     /**
