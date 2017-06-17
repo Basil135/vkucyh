@@ -44,9 +44,15 @@ public class Stack<E> {
 
         E result;
 
+        Node<E> current = last;
+
         result = last.value;
 
         last = last.prev;
+
+        current.value = null;
+
+        current.prev = null;
 
         return result;
 
