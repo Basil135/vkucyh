@@ -1,11 +1,13 @@
 package ru.job4j.pro.list;
 
+import java.util.Iterator;
+
 /**
  * This class describes collection queue.
  *
  * @param <E> is generic type
  */
-public class Queue<E> {
+public class Queue<E> implements Iterable<E> {
 
     /**
      * parameter first is link to first element of the queue.
@@ -49,7 +51,13 @@ public class Queue<E> {
 
         E result = first.value;
 
+        Node<E> current = first;
+
         first = first.next;
+
+        current.next = null;
+
+        current.value = null;
 
         return result;
 
@@ -62,6 +70,16 @@ public class Queue<E> {
      */
     public boolean isEmpty() {
         return first == null;
+    }
+
+    /**
+     * method return queue iterator.
+     *
+     * @return queue iterator
+     */
+    @Override
+    public Iterator<E> iterator() {
+        return new QueueIterator();
     }
 
     /**
@@ -79,6 +97,33 @@ public class Queue<E> {
          * parameter value is value of node.
          */
         private E value;
+
+    }
+
+    /**
+     * This inner class describes queue iterator.
+     */
+    private class QueueIterator implements Iterator<E> {
+
+        /**
+         * method return true if queue have elements.
+         *
+         * @return true if queue have elements
+         */
+        @Override
+        public boolean hasNext() {
+            return !isEmpty();
+        }
+
+        /**
+         * method return first element.
+         *
+         * @return first element
+         */
+        @Override
+        public E next() {
+            return pop();
+        }
 
     }
 
