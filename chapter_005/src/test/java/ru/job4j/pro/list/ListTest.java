@@ -117,10 +117,12 @@ public class ListTest {
         String[] expectedArray = {"0", "1", "2", "3", "4"};
         String[] actualArray = new String[5];
 
+        Iterator<String> iter = queue.iterator();
+
         int index = 0;
 
-        while (!queue.isEmpty()) {
-            actualArray[index++] = queue.pop();
+        while (iter.hasNext()) {
+            actualArray[index++] = iter.next();
         }
 
         assertTrue(queue.isEmpty());
