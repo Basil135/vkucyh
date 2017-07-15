@@ -40,18 +40,18 @@ public class User {
 
     }
 
-//    /**
-//     * method return integer as describe object.
-//     *
-//     * @return integer
-//     */
-//    @Override
-//    public int hashCode() {
-//        int result = name.hashCode();
-//        result = 31 * result + children;
-//        result = 31 * result + birthday.hashCode();
-//        return result;
-//    }
+    /**
+     * method return integer as describe object.
+     *
+     * @return integer
+     */
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + children;
+        result = 31 * result + birthday.hashCode();
+        return result;
+    }
 
     /**
      * method compare this with object o.
