@@ -47,4 +47,54 @@ public class TreeTest {
 
     }
 
+    /**
+     * method test isBinary method of class Tree by positive scenario.
+     */
+    @Test
+    public void whenIsBinaryPositiveScenarioThenTrue() {
+
+        Tree<Integer> tree = new Tree<>();
+
+        tree.add(1, 2);
+        tree.add(1, 17);
+        tree.add(2, 53);
+        tree.add(2, 77);
+        tree.add(77, 81);
+        tree.add(77, 82);
+        tree.add(53, 89);
+
+        boolean expected = true;
+
+        boolean actual = tree.isBinary();
+
+        assertThat(expected, is(actual));
+
+    }
+
+    /**
+     * method test isBinary method of class Tree by negative scenario.
+     */
+    @Test
+    public void whenIsBinaryNegativeScenarioThenFalse() {
+
+        Tree<Integer> tree = new Tree<>();
+
+        tree.add(1, 2);
+        tree.add(1, 17);
+        tree.add(2, 53);
+        tree.add(2, 77);
+        tree.add(77, 81);
+        tree.add(77, 82);
+        tree.add(53, 89);
+        tree.add(53, 143);
+        tree.add(53, 73);
+
+        boolean expected = false;
+
+        boolean actual = tree.isBinary();
+
+        assertThat(expected, is(actual));
+
+    }
+
 }
