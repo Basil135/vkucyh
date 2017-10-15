@@ -97,4 +97,34 @@ public class TreeTest {
 
     }
 
+    /**
+     * method tests search binary tree.
+     */
+    @Test
+    public void whenAddFifteenNumbersToSearchBinaryTreeThenIteratorsReturnWriteOrder() {
+
+        SearchBinaryTree<Integer> sbt = new SearchBinaryTree<>();
+
+        Integer[] toAdd = {9, 1, 5, 13, 10, 4, 7, 14, 15, 12, 3, 2, 11, 6, 8, 0};
+
+        for (Integer in: toAdd) {
+            sbt.add(in);
+        }
+
+        Integer[] expected = {9, 1, 13, 0, 5, 10, 14, 4, 7, 12, 15, 3, 6, 8, 11, 2};
+
+        Integer[] actual = new Integer[16];
+
+        Iterator<Integer> iter = sbt.iterator();
+
+        int i = 0;
+
+        while (iter.hasNext()) {
+            actual[i++] = iter.next();
+        }
+
+        assertThat(actual, is(expected));
+
+    }
+
 }
