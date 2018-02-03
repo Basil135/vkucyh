@@ -16,12 +16,10 @@ import java.util.Set;
  * @since 28.01.2018
  */
 public class OrderMap {
-
     /**
      * this parameter is map of string as book name and list of BookOrder as order of book by name.
      */
     private final Map<String, List<BookOrder>> map = new HashMap<>();
-
     /**
      * method add order to map.
      *
@@ -29,19 +27,13 @@ public class OrderMap {
      * @param bookOrder order of book as class BookOrder
      */
     public void addOrder(final String bookName, final BookOrder bookOrder) {
-
         List<BookOrder> list = map.get(bookName);
-
         if (list == null) {
             list = new ArrayList<>();
         }
-
         list.add(bookOrder);
-
         map.put(bookName, list);
-
     }
-
     /**
      * method delete order from map.
      *
@@ -49,18 +41,12 @@ public class OrderMap {
      * @param bookOrder is order of book to delete
      */
     public void deleteOrder(final String bookName, final BookOrder bookOrder) {
-
         List<BookOrder> list = map.get(bookName);
-
-        if (!(list == null)) {
-
+        if (list != null) {
             list.remove(bookOrder);
             map.put(bookName, list);
-
         }
-
     }
-
     /**
      * method generate set of string as book name from map.
      *
@@ -69,7 +55,6 @@ public class OrderMap {
     public Set<String> getBookNames() {
         return map.keySet();
     }
-
     /**
      * method return map.
      *
@@ -78,5 +63,4 @@ public class OrderMap {
     public Map<String, List<BookOrder>> getMap() {
         return map;
     }
-
 }

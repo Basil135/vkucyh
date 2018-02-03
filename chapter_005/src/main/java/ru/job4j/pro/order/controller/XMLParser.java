@@ -22,12 +22,10 @@ import java.io.IOException;
  * @since 28.01.2018
  */
 public class XMLParser extends DefaultHandler {
-
     /**
      * parameter orderMap is instance of OrderMp class.
      */
     private final OrderMap orderMap = new OrderMap();
-
     /**
      * method override start element of xml and add order to map or delete.
      *
@@ -38,38 +36,26 @@ public class XMLParser extends DefaultHandler {
      */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
-
-        if (qName.equals("AddOrder")) {
-
+        String addOrder = "AddOrder";
+        String deleteOrder = "DeleteOrder";
+        if (addOrder.equals(qName)) {
             String bookName = attributes.getValue("book");
             String orderId = attributes.getValue("orderId");
             String volume = attributes.getValue("volume");
             String price = attributes.getValue("price");
             String strOperation = attributes.getValue("operation");
-
             Operation operation = strOperation.equals("BUY") ? Operation.BUY : Operation.SELL;
-
             Order order = new Order(volume, price);
-
             OperationMyOrder operationMyOrder = new OperationMyOrder(operation, order);
-
             BookOrder bookOrder = new BookOrder(orderId, operationMyOrder);
-
             orderMap.addOrder(bookName, bookOrder);
-
-        } else if (qName.equals("DeleteOrder")) {
-
+        } else if (deleteOrder.equals(qName)) {
             String bookName = attributes.getValue("book");
             String orderId = attributes.getValue("orderId");
-
             BookOrder bookOrder = new BookOrder(orderId, null);
-
             orderMap.deleteOrder(bookName, bookOrder);
-
         }
-
     }
-
     /**
      * method parse file to orderMap.
      *
@@ -81,13 +67,8 @@ public class XMLParser extends DefaultHandler {
      * @throws IOException throw if something going wrong in parse
      */
     public OrderMap parse(final File file, XMLParser xmlParser) throws ParserConfigurationException, SAXException, IOException {
-
         SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-
         parser.parse(file, xmlParser);
-
         return orderMap;
-
     }
-
 }

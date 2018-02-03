@@ -17,7 +17,6 @@ import java.util.Set;
  * @since 28.01.2018
  */
 public class Action {
-
     /**
      * method that execute all.
      *
@@ -26,26 +25,16 @@ public class Action {
      * @throws SAXException throws when SAXParser is going wrong
      * @throws ParserConfigurationException throws when parser is going wrong
      */
-    public static void action(String filePath) throws IOException, SAXException, ParserConfigurationException {
-
+    public void action(String filePath) throws IOException, SAXException, ParserConfigurationException {
         File file = new File(filePath);
-
         XMLParser parser = new XMLParser();
-
         OrderMap orderMap = parser.parse(file, parser);
-
         ConsoleWriter consoleWriter = new ConsoleWriter();
-
         Set<String> books = orderMap.getBookNames();
-
         List<List<String>> result = new ArrayList<>();
-
         for (String book : books) {
             result.add(consoleWriter.getResultOrder(book, orderMap.getMap()));
         }
-
         consoleWriter.writeToConsole(result);
-
     }
-
 }

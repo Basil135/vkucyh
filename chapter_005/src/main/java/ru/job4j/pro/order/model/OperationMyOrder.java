@@ -8,7 +8,6 @@ package ru.job4j.pro.order.model;
  * @since 28.01.2018
  */
 public class OperationMyOrder {
-
     /**
      * parameter operation is enum - sale or buy.
      */
@@ -17,7 +16,6 @@ public class OperationMyOrder {
      * parameter order is data of order - volume and price.
      */
     private final Order order;
-
     /**
      * constructor of this class.
      *
@@ -28,7 +26,6 @@ public class OperationMyOrder {
         this.operation = operation;
         this.order = order;
     }
-
     /**
      * method return order.
      *
@@ -37,7 +34,6 @@ public class OperationMyOrder {
     public Order getOrder() {
         return order;
     }
-
     /**
      * method return operation.
      *
@@ -46,5 +42,4 @@ public class OperationMyOrder {
     public Operation getOperation() {
         return operation;
     }
-
 }

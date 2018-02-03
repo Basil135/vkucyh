@@ -14,7 +14,6 @@ import java.io.IOException;
  * @since 28.01.2018
  */
 public class Main {
-
     /**
      * method run a program.
      *
@@ -25,9 +24,7 @@ public class Main {
      * @throws InterruptedException is exception
      */
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, InterruptedException {
-
-        Action.action("/Users/kucyh/Downloads/orders.xml");
-
+        Action action = new Action();
+        action.action("/Users/kucyh/Downloads/orders.xml");
     }
-
 }

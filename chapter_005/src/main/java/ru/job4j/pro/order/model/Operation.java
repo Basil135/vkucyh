@@ -12,5 +12,4 @@ public enum Operation {
      * enum data.
      */
     BUY, SELL;
-
 }

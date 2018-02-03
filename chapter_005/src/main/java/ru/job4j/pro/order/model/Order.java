@@ -10,7 +10,6 @@ import java.util.Objects;
  * @since 28.01.2018
  */
 public class Order {
-
     /**
      * parameter volume of order.
      */
@@ -19,7 +18,6 @@ public class Order {
      * parameter price of order.
      */
     private final String price;
-
     /**
      * constructor of this class.
      *
@@ -30,7 +28,6 @@ public class Order {
         this.price = price;
         this.volume = volume;
     }
-
     /**
      * method return volume of order.
      *
@@ -39,7 +36,6 @@ public class Order {
     public String getVolume() {
         return volume;
     }
-
     /**
      * method return price of order.
      *
@@ -48,7 +44,6 @@ public class Order {
     public String getPrice() {
         return price;
     }
-
     /**
      * method compare two objects.
      *
@@ -57,20 +52,15 @@ public class Order {
      */
     @Override
     public boolean equals(Object o) {
-
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Order order = (Order) o;
-
         return Objects.equals(price, order.price);
-
     }
-
     /**
      * method return hashCode number of instance.
      *
@@ -80,7 +70,6 @@ public class Order {
     public int hashCode() {
         return Objects.hash(price);
     }
-
     /**
      * method return string of instance of this class.
      *

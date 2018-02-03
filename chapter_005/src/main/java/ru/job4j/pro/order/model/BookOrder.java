@@ -1,5 +1,4 @@
 package ru.job4j.pro.order.model;
-
 /**
  * This class describes entity BookOrder as order id and OperationMyOrder as next else data of order.
  *
@@ -8,7 +7,6 @@ package ru.job4j.pro.order.model;
  * @since 28.01.2018
  */
 public class BookOrder {
-
     /**
      * parameter orderId is id of order.
      */
@@ -17,7 +15,6 @@ public class BookOrder {
      * parameter operationMyOrder is data of order.
      */
     private final OperationMyOrder operationMyOrder;
-
     /**
      * constructor of this class.
      *
@@ -28,7 +25,6 @@ public class BookOrder {
         this.operationMyOrder = operationMyOrder;
         this.orderId = orderId;
     }
-
     /**
      * method return orderId.
      *
@@ -37,7 +33,6 @@ public class BookOrder {
     public String getOrderId() {
         return orderId;
     }
-
     /**
      * method return operationMyOrder.
      *
@@ -46,5 +41,4 @@ public class BookOrder {
     public OperationMyOrder getOperationMyOrder() {
         return operationMyOrder;
     }
-
 }
