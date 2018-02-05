@@ -54,20 +54,31 @@ public class CountOfWordsAndSep {
         CountOfWordsAndSep counter = new CountOfWordsAndSep();
         String text = "this is the simple text.";
 
-        new Thread(new Runnable() {
+        System.out.println("This is test multithreading program!");
+
+        Thread wordsCounter = new Thread(new Runnable() {
             @Override
             public void run() {
                 counter.countOfWords(text);
             }
-        }).start();
+        });
 
-        new Thread(new Runnable() {
+        Thread separatorCounter = new Thread(new Runnable() {
             @Override
             public void run() {
                 counter.countOfSeparators(text, ' ');
             }
-        }).start();
+        });
 
-        System.out.println("main thread");
+        wordsCounter.start();
+        separatorCounter.start();
+        try {
+            wordsCounter.join(1000);
+            separatorCounter.join(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("end of main thread");
     }
 }
