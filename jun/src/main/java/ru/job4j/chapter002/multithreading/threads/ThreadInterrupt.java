@@ -16,14 +16,20 @@ public class ThreadInterrupt {
          * parameter time is how long the thread will work until stay interrupt flag.
          */
         private final long time;
+        /**
+         * parameter toInterrupt is thread need to be interrupted by this thread.
+         */
+        private Thread toInterrupt;
 
         /**
          * constructor of Time class.
          *
          * @param waitingTime is time until interrupt flag will stay
+         * @param toInterrupt is thread need to be interrupted by this thread
          */
-        public Time(final long waitingTime) {
+        public Time(final long waitingTime, final Thread toInterrupt) {
             this.time = waitingTime;
+            this.toInterrupt = toInterrupt;
         }
 
         /**
@@ -36,7 +42,7 @@ public class ThreadInterrupt {
             } catch (InterruptedException e) {
                 return;
             } finally {
-                Thread.currentThread().interrupt();
+                toInterrupt.interrupt();
             }
         }
     }
@@ -78,12 +84,10 @@ public class ThreadInterrupt {
         @Override
         public void run() {
             for (int i = 0; i < text.length(); i++) {
-                length++;
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (Thread.currentThread().isInterrupted()) {
+                    return;
                 }
+                length++;
             }
         }
     }
@@ -95,11 +99,10 @@ public class ThreadInterrupt {
      */
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
-        Time time = new Time(10000);
         String text = "sf j ds sdfa gagrasfvf rsr v s avdsvsv";
         CountChar chars = new CountChar(text);
-
         Thread counter = new Thread(chars);
+        Time time = new Time(1000, counter);
         Thread timer = new Thread(time);
 
         counter.start();
